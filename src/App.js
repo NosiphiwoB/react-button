@@ -57,20 +57,27 @@ constructor(props) {
   this.handleClick = this.handleClick.bind(this);
 }
 handleClick(){
-  this.setState(state) => {
-    if(this.state.backgroundColor === "blue"){
+  this.setState(state => {
+    if(state.backgroundColor === "blue"){
       return {backgroundColor:"green"};
-      else if {(state.backgroundColor:"blue")};
+      else if(state.backgroundColor === "green"){
+        return {backgroundColor : "blue"};
+      }
     }
   }
+  );
 }
 
   render() {
-    return (
-      <div>
-      <button onClick = {this.handleClick}>Click Me</button>
-      </div>;
-    );
+    if (this.state.backgroundColor){
+      return(
+      <div style={{backgroundColor:this.state.backgroundColor,height:"100vh"}})>
+        <button onClick={this.handleClick}>Click Me</button>
+      </div>
+    };
+    else{return(<div style = {{backgroundColor:this.state.backgroundColor,height:"100vh"}}>
+    <button onClick={this.handleClick}>Click Me</button>
+    </div>)}
   }
 };
 
