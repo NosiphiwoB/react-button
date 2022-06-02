@@ -52,10 +52,29 @@ constructor(props) {
   super(props);
 
   this.state = {
-    backgroundColor: 'green'
+    backgroundColor: 'green',counter: 0
   };
   this.handleClick = this.handleClick.bind(this);
+  this.increment = this.increment.bind(this);
+  this.decrement = this.decrement.bind(this);
 }
+
+increment() {
+  this.setState((state) => ({
+    counter: state.counter + 1
+    }));
+}
+
+decrement() {
+  this.setState((state) => {
+    if(state.counter <= 0){
+      return 0;
+    } else{
+      return {counter:state.counter - 1}
+    }
+  })
+}
+
 handleClick(){
   this.setState(state => {
     if(state.backgroundColor === "blue"){
@@ -72,7 +91,10 @@ handleClick(){
     if (this.state.backgroundColor){
       return(
       <div class="btn" style={{backgroundColor:this.state.backgroundColor,height:"100vh"}}>
-        <button onClick={this.handleClick}>Click Me</button>
+        <h1>{this.state.counter}</h1><br />
+        <button onClick={this.increment}>+</button>
+        <button onClick={this.handleClick}>Change Background</button>
+        <button onClick={this.decrement}>-</button>
       </div>
     )};
   }
