@@ -24,8 +24,8 @@
 
 // export default App;
 import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+// import styled from 'styled-components';
+// import PropTypes from 'prop-types';
 
 // #region constants
 
@@ -52,37 +52,33 @@ constructor(props) {
   super(props);
 
   this.state = {
-    backgroundColor:green
+    backgroundColor: 'green'
   };
   this.handleClick = this.handleClick.bind(this);
 }
 handleClick(){
   this.setState(state => {
     if(state.backgroundColor === "blue"){
-      return {backgroundColor:"green"};
+      return {backgroundColor:"green"};}
       else if(state.backgroundColor === "green"){
         return {backgroundColor : "blue"};
       }
     }
-  }
+  
   );
 }
 
   render() {
     if (this.state.backgroundColor){
       return(
-      <div style={{backgroundColor:this.state.backgroundColor,height:"100vh"}})>
+      <div class="btn" style={{backgroundColor:this.state.backgroundColor,height:"100vh"}}>
         <button onClick={this.handleClick}>Click Me</button>
       </div>
-    };
-    else{return(<div style = {{backgroundColor:this.state.backgroundColor,height:"100vh"}}>
-    <button onClick={this.handleClick}>Click Me</button>
-    </div>)}
+    )};
   }
 };
 
-App.propTypes = propTypes;
-App.defaultProps = defaultProps;
+
 // #endregion
 
 export default App;
